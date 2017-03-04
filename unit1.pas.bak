@@ -1,0 +1,213 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
+  StdCtrls, LCLtype;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    ListBox1: TListBox;
+    ListBox2: TListBox;
+    OpenDialog1: TOpenDialog;
+    OpenDialog2: TOpenDialog;
+    SaveDialog1: TSaveDialog;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure fillstrgrd1();
+    procedure fillstrgrd2();
+    procedure ListBox1Click(Sender: TObject);
+    procedure ListBox2Click(Sender: TObject);
+
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  filorig, filtran: TextFile;// text files for orig. & translated subs
+  orig, tran: Array[0..5000] of String;//arrays of orig. & translated strings
+  numer, linen:integer; //number of lines, line selected
+
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+
+procedure TForm1.fillstrgrd1();//procedure for original subs
+var                            //filled in listbox 1
+  i: integer;                  // and listbox 2 for translating
+  begin
+    ListBox1.Clear;
+    listBox2.Clear;
+    i:=0;
+    repeat
+    ListBox1.Items.Add(orig[i]);
+    ListBox2.Items.Add(orig[i]);
+    i:=i+1;
+    until i=numer;
+    Edit1.Text:='End O';
+  end;
+procedure TForm1.fillstrgrd2();//procedure for translated subs
+var                            //filled in listbox 2
+  i: integer;
+  begin
+    listBox2.Clear;
+    i:=0;
+    repeat
+    ListBox2.Items.Add(tran[i]);
+    i:=i+1;
+    until i=numer;
+    Edit1.Text:='End T';
+  end;
+
+procedure TForm1.ListBox1Click(Sender: TObject);//if clicked somewhere in listbox 1
+var
+  i: integer;
+begin
+  i:=0;
+  repeat
+   if ListBox1.Selected[i]=true then linen:=i;//find a number of line in listbox 1
+   i:=i+1;
+  until i=numer;
+  ListBox2.ItemIndex:=linen;//select a same line in listbox 2
+  Edit1.Text:=ListBox2.Items[linen];//get this line to edit
+end;
+
+procedure TForm1.ListBox2Click(Sender: TObject);//if clicked in listbox 2
+var
+  i: integer;
+begin
+  i:=0;
+  repeat
+   if ListBox2.Selected[i]=true then linen:=i;//find a number of line in listbox 2
+   i:=i+1;
+  until i=numer;
+  ListBox1.ItemIndex:=linen;//select a same line in listbox 1
+  Edit1.Text:=ListBox2.Items[linen];//get this line to edit
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);//OPEN translated sub file
+var                                            // could be previous one
+ i: integer;
+ pat:String;
+begin
+  OpenDialog2.Filter := 'Srt files|*.srt;*.SRT';
+  OpenDialog2.Execute; //dialog to find translated sub file
+  pat:=OpenDialog2.FileName;//save path to file in variable pat
+  Label2.Caption:=pat;// show it to user
+  Assignfile(filtran, pat);
+  Reset(filtran);
+  i:=0; // reset counter to 0
+  repeat
+    ReadLn(filtran, tran[i]);
+    i:=i+1;
+  until EOF(filtran);
+  numer:=i;//save line counter number for other procedures
+  Label3.Caption:=IntToStr(numer);
+  CloseFile(filtran);
+  fillstrgrd2();
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+  ShowMessage('This application is made mostly'+ sLineBreak+ 'just for translating subtitles.'+
+  sLineBreak+'Open your subtitles and start to translate, then save.'+sLineBreak+
+  'Also you can open your previously translated file.'+sLineBreak+'Text encoding is default for operating system'
+  +sLineBreak+'you use - ANSI in windows, UTF8 - in Linux'+sLineBreak+
+  'Try to not editing timing and numbers of subtitles.');
+end;
+
+procedure TForm1.Edit1KeyUp(Sender: TObject;//you editing line, hit enter and navigate in subs.
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key=VK_UP then   //if you hit up arrow
+  begin
+   linen:=linen-1;
+   ListBox2.Selected[linen]:=true;
+   ListBox1.Selected[linen]:=true;
+  end;
+  if Key=VK_DOWN then //if you hit down arrow
+  begin
+   linen:=linen+1;
+   ListBox2.Selected[linen]:=true;
+   ListBox1.Selected[linen]:=true;
+  end;
+  if Key=VK_RETURN then
+  begin
+  ListBox2.Items.Strings[linen]:=Edit1.Text;//get edited line in translated sub listbox 2
+  linen:=linen+1;    //get next line number
+  Edit1.Text:='';//clear an editing line
+  ListBox2.Selected[linen]:=true;//go to next line in listbox 2
+  ListBox1.selected[linen]:=true;//go to next line in listbox 1
+  Edit1.Text:=ListBox2.Items.Strings[linen];  //show line in edit string
+  end;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);//OPEN original sub file
+ var
+ i: integer;
+ pat:String;
+begin
+  OpenDialog1.Filter := 'Srt files|*.srt;*.SRT';
+  OpenDialog1.Execute; //dialog to find an original sub file
+  pat:=OpenDialog1.FileName;//save path to file in variable pat
+  Label1.Caption:=pat;// show it to user
+  Assignfile(filorig, pat);
+  Reset(filorig);
+  i:=0; // reset counter to 0
+  repeat
+    ReadLn(filorig, orig[i]);
+    i:=i+1;
+  until EOF(filorig);
+  numer:=i;//save line counter number for other procedures
+  CloseFile(filorig);
+  fillstrgrd1();
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);//SAVE translated sub file
+ var
+ pat, at: String;
+ leng:integer;
+begin
+ pat:=Label1.Caption;//get a path & filename where original subs are taken
+ leng:=Length(pat);//get a length of this string
+ at:=Copy(pat,1,(leng-4)); //cut 4 places of the length
+ pat:= Concat(at,'_tr.srt');//merge to cutted path & filename string _tr.srt
+ AssignFile(filtran,pat);
+ Rewrite(filtran);
+ ListBox2.Items.SaveToFile(pat);//saving content of listbox 2 - the translation
+ CloseFile(filtran);
+end;
+
+end.

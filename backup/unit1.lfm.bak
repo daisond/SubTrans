@@ -1,0 +1,125 @@
+object Form1: TForm1
+  Left = 268
+  Height = 640
+  Top = 46
+  Width = 860
+  HelpContext = 520
+  ActiveControl = ListBox1
+  Caption = 'SubTrans'
+  ClientHeight = 640
+  ClientWidth = 860
+  LCLVersion = '1.0.10.0'
+  Visible = True
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 536
+    Width = 88
+    Caption = 'Open subs'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 8
+    Height = 25
+    Top = 592
+    Width = 88
+    Caption = 'Save Transl.'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 769
+    Height = 25
+    Top = 592
+    Width = 75
+    Caption = 'Exit'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 112
+    Height = 17
+    Top = 542
+    Width = 121
+    Caption = 'Original subtitle file'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 112
+    Height = 17
+    Top = 599
+    Width = 113
+    Caption = 'Translated sub file'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 432
+    Height = 26
+    Top = 488
+    Width = 426
+    OnKeyUp = Edit1KeyUp
+    TabOrder = 3
+    Text = 'Edit line here'
+  end
+  object ListBox1: TListBox
+    Left = 2
+    Height = 480
+    Top = 8
+    Width = 426
+    ItemHeight = 0
+    OnClick = ListBox1Click
+    ScrollWidth = 424
+    TabOrder = 4
+    TopIndex = -1
+  end
+  object ListBox2: TListBox
+    Left = 432
+    Height = 480
+    Top = 8
+    Width = 426
+    ItemHeight = 0
+    OnClick = ListBox2Click
+    ScrollWidth = 424
+    TabOrder = 5
+    TopIndex = -1
+  end
+  object Button4: TButton
+    Left = 8
+    Height = 25
+    Top = 564
+    Width = 88
+    Caption = 'Open tr. subs'
+    OnClick = Button4Click
+    TabOrder = 6
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 17
+    Top = 496
+    Width = 9
+    Caption = '0'
+    ParentColor = False
+  end
+  object Button5: TButton
+    Left = 672
+    Height = 25
+    Top = 592
+    Width = 75
+    Caption = 'Little help'
+    OnClick = Button5Click
+    TabOrder = 7
+  end
+  object OpenDialog1: TOpenDialog
+    left = 256
+    top = 528
+  end
+  object OpenDialog2: TOpenDialog
+    left = 336
+    top = 528
+  end
+  object SaveDialog1: TSaveDialog
+    left = 416
+    top = 528
+  end
+end

@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="project1"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="33" Y="16"/>
+        <UsageCount Value="63"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="217"/>
+        <CursorPos X="66" Y="8"/>
+        <UsageCount Value="63"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="/usr/lib/lazarus/lcl/lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="836"/>
+        <CursorPos X="75" Y="871"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="/usr/share/lazarus/1.2.6/lcl/include/control.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2455"/>
+        <CursorPos X="61" Y="2722"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="18" HistoryIndex="17">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="172" Column="19" TopLine="143"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="178" Column="73" TopLine="166"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="100" Column="35" TopLine="90"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="103" Column="5" TopLine="86"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="200" Column="35" TopLine="190"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="213" Column="29" TopLine="175"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="196" Column="35" TopLine="176"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="212" Column="75" TopLine="176"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="119" Column="25" TopLine="1"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="118" Column="56" TopLine="94"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="119" Column="31" TopLine="94"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="39" Column="72" TopLine="14"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="128" Column="19" TopLine="116"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="55" Column="37" TopLine="33"/>
+      </Position14>
+      <Position15>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="22" Column="16" TopLine="1"/>
+      </Position15>
+      <Position16>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="17" Column="30" TopLine="1"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="55" Column="37" TopLine="18"/>
+      </Position17>
+      <Position18>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="17" Column="30" TopLine="1"/>
+      </Position18>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
