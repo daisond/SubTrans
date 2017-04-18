@@ -146,7 +146,7 @@ var                                            // could be previous one
 begin
   wat:='';
   OpenDialog2.Filter := 'Srt files|*.srt;*.SRT';
-  OpenDialog2.Execute; //dialog to find translated sub file
+ //dialog to find translated sub file
   if Opendialog2.Execute
    then
     begin wat:=OpenDialog2.FileName;//save path to file in variable wat
