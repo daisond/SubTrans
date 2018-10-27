@@ -48,8 +48,8 @@ var
   Form1: TForm1;
   filorig: TextFile;
   filtran: TextFile;// text files for orig. & translated subs
-  orig: Array[0..8000] of String;
-  tran: Array[0..8000] of String;//arrays of orig. & translated strings
+  orig: Array[0..10000] of String;
+  tran: Array[0..10000] of String;//arrays of orig. & translated strings
   numer, linen:integer; //number of lines, line selected
   wat, pat:String;
 
